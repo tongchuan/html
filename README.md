@@ -1,7 +1,7 @@
 # html
 
-[访问地址](https://tongchuan.github.io/html/ "访问地址" "_blank")
-
+<!-- [访问地址](https://tongchuan.github.io/html/) -->
+<a href="https://tongchuan.github.io/html/" target="_blank">访问地址</a>
 
 ```
 echo "# html" >> README.md
