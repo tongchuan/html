@@ -1,6 +1,6 @@
 # html
 
-[访问地址](https://tongchuan.github.io/html/?_blank)
+[访问地址](https://tongchuan.github.io/html/){:target="_blank"}
 
 
 ```
