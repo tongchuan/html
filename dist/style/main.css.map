@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/styles/main.less"],"names":[],"mappings":"AAAA;AACA;AACA;AACA","file":"style/main.css","sourcesContent":["body {\n  background: #eff;\n  display: flex;\n}\n"],"sourceRoot":""}

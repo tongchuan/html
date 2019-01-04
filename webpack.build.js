@@ -90,22 +90,6 @@ module.exports = {
 		},
 		extensions: [".js", ".json", ".jsx", ".css"]
 	},
-	devServer: {
-		after: function(app, server) {
-
- 		},
-		contentBase: path.join(__dirname, 'dist'),
-		compress: true,
-		port: 9000,
-		hot: true,
-		open: true, //'Google Chrome'
-	},
-	watch: true,
-	watchOptions: {
-		aggregateTimeout: 300,
-		poll: 500,
-		ignored: /node_modules/,
-	},
 	target: "web",
 	stats: {
 		assets: true,
