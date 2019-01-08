@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Redirect,Link } from 'react-router-dom'
 import configureStore from './redux'
 import App from '@/containers/App'
 import Home from '@/containers/Home'
+import NewsTypeAdd from '@/containers/news/NewsTypeAdd'
+
 import './styles/main.less'
 const store = configureStore()
 const supportsHistory = 'pushState' in window.history;
@@ -16,11 +18,11 @@ ReactDom.render(
             <ul>
               <li><Link to='/'>首页</Link></li>
               <li><Link to='/about'>关于</Link></li>
-              <li><Link to='/topics'>主题列表</Link></li>
+              <li><Link to='/newstypeadd'>newadd</Link></li>
             </ul>
             <Route exact path='/' component={Home} />
             <Route path='/about' component={App} />
-            <Route path='/topics' component={Home} />
+            <Route path='/newstypeadd' component={NewsTypeAdd} />
           </div>
 
 		{/*<Route path="/" component={Home}>
