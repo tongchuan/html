@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default axios
+// export default axios
 
 
 // import axios from 'axios'
@@ -11,28 +11,26 @@ export default axios
 
 
 
-// let instance =  axios.create({
-//   // baseURL:config.baseURL,
+let instance =  axios.create({
+  	baseURL: process.env.baseURI,
 //   method: 'get',
-//   // headers: {
-//   //   'Content-Type': 'application/json;charset=utf-8'
-//   // },
-//   // withCredentials: true,//!!config.env,
-//   // responseType: 'json',
-//   timeout: 0,
-//   transformRequest: [
-//     function(data){
-//       return data
-//     }
-//   ],
-//   transformResponse:[function(data){
-//     // console.log(data)
-//     return data
-//   }]
-// })
-
+  	headers: {
+  		'Accept': '*/*',
+        'Content-Type': 'application/json;charset=utf-8'
+    },
+	withCredentials: false,
+	responseType: 'json',
+	timeout: 0,
+	transformRequest: [function(data){
+		return data
+	}],
+	transformResponse:[function(data){
+		return data
+	}]
+});
+let dispatch
 // // 添加请求拦截器
-// instance.interceptors.request.use(function (conf) {
+instance.interceptors.request.use(function (conf) {
 //   // globalStore.showWait()
 //   // 在发送请求之前做些什么
 //   // if(!config.env && conf.method.toLowerCase() === 'post'){
@@ -48,36 +46,40 @@ export default axios
 //       conf.params = queryString.stringify(conf.data)
 //     }
 //   }else{
-//     if(conf.method.toLowerCase() === 'post'){
-//       conf.data = conf.data
-//     }else{
-//       conf.params = conf.data
-//     }
+    if(conf.method.toLowerCase() === 'post'){
+      conf.data = JSON.stringify(conf.data)
+    }else{
+      conf.params = conf.data
+    }
 //     // conf.data = JSON.stringify(conf.data)
 //     // conf.params = JSON.stringify(conf.data)
-//   }
+
 
   
 //   // if(conf.method.toLowerCase() === 'get' && conf.headers['Content-Type']!='application/json;charset=utf-8'){
 //   //   conf.params = JSON.parse(conf.data)
 //   // }
-//   // console.log(config)
-//   return conf;
-// }, function (error) {
+  // console.log(conf)
+  dispatch = conf.dispatch
+  return conf;
+}, function (error) {
 //   // globalStore.hideWait()
 //   // 对请求错误做些什么
-//   return error;
-// });
+  return error;
+});
 
 // // 添加响应拦截器
-// instance.interceptors.response.use(function (response) {
+instance.interceptors.response.use(function (response) {
+	// console.log(dispatch);
+	dispatch({type: 'MESSAGE_TYPE', data: {text:'kaishi'}})
+	// console.log(response);
 //   // globalStore.hideWait()
 //   // 对响应数据做点什么
-//   return response.data;
-// }, function (error) {
-//   // globalStore.hideWait()
-//   // globalStore.showError('数据请求失败,错误信息：'+error.toString())
-//   // 对响应错误做点什么
-//   return error;
-// });
-// export default instance
+  return response.data;
+}, function (error) {
+  // 对响应错误做点什么
+
+  return error;
+});
+console.log(instance.interceptors);
+export default instance

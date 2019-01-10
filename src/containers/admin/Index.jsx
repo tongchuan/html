@@ -7,7 +7,7 @@ import newTypeActions from '@/redux/actions/newsTypeActions';
 import Header from '@/components/common/Header';
 @connect(
 	(state,ownProps)=>{
-		// console.log(state);
+		console.log(state);
 		return {newsTypeState: state.newsTypeReducers}
 	},
 	(dispatch,ownProps)=>{
@@ -20,7 +20,7 @@ import Header from '@/components/common/Header';
 		withRef: false
 	}
 )
-export default class NewsTypeAdd extends Component {
+export default class Index extends Component {
 	constructor(props){
 		super(props)
 		this.onChangeInput = this.onChangeInput.bind(this)
@@ -56,7 +56,6 @@ export default class NewsTypeAdd extends Component {
 				order:0
 			}
 		}
-		console.log(this);
 	}
 	componentDidMount(){
 		this.props.actions.getList({name:111})

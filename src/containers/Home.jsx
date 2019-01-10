@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import newActions from '../redux/actions/newsActions'
+import Header from '@/components/common/Header';
 // connect(mapStateToProps(state,ownProps),mapDispatchToProps(dispatch,ownProps),mergeProps(stateProps, dispatchProps, ownProps),option)
 @connect(
 	(state,ownProps)=>{
@@ -38,6 +39,7 @@ export default class Home extends Component {
 		console.log(this.props.newsState);
 		return (
 			<div>
+				<Header />
 				<ul>
 					<li>name: {this.props.newsState.name}</li>
 					<li>age: {this.props.newsState.age}</li>

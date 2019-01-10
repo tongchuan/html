@@ -1,12 +1,13 @@
-import axios from '../../constants/axios'
-import types from '../types/newsTypes'
+import axios from '@/constants/axios'
+import config from '@/constants/config';
+import types from '@/redux/types/newsTypes'
 export default {
 	getItem(params){
 		// console.log(data);
 		return (dispatch,getState,api)=>{
 			// console.log(getState());
 			// console.log([dispatch,getState,statue]);
-			axios.get('http://97.64.37.117:8888/user',{
+			axios.get(config.user.user,{
 				params: {
 					data:params
 				}

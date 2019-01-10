@@ -1,7 +1,7 @@
-import types from '../types/newsTypes'
-import initStateData from '../../constants/initStateData'
+import types from '@/redux/types/newsTypeTypes'
+import initStateData from '@/constants/initStateData'
 export default function(state=initStateData.newsStateInitData, action){
-	console.log(arguments);
+	// console.log(arguments);
 	switch (action.type) {
 		case types.NEWS_GET_ITEM:
 			return Object.assign({},state,action.data)

@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const Dashboard = require('webpack-dashboard');
 // const DashboardPlugin = require('webpack-dashboard/plugin');
 // const dashboard = new Dashboard();
@@ -64,7 +65,18 @@ module.exports = {
 	      // both options are optional
 	      filename: "style/[name].css",
 	      chunkFilename: "style/[id].css"
-	    })
+	    }),
+	    new CopyWebpackPlugin([
+	      {
+	        from: path.resolve(__dirname, 'static'),
+	        to: path.join(__dirname, 'dist/static')
+	      }
+	    ]),
+	    new webpack.DefinePlugin({
+		    'process.env': {
+		      baseURI: JSON.stringify('http://97.64.37.117:8888/')
+		    }
+		}),
 	],
 	module: {
 		rules: [
@@ -73,7 +85,17 @@ module.exports = {
 
 			] } },
 			{
-				test: /\.(less|css)$/,
+				test: /\.(css)$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					// devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+					'css-loader',
+					// 'postcss-loader',
+					// 'less-loader',
+				],
+			},
+			{
+				test: /\.(less)$/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					// devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -81,7 +103,32 @@ module.exports = {
 					// 'postcss-loader',
 					'less-loader',
 				],
-			}
+			},
+			{
+		        test: /\.(png|jpg|gif|md)$/,
+		        use: [
+		          {
+		            loader: 'file-loader',
+		            options: {
+		              name: '[name]-[hash].[ext]',
+		              publicPath: '',
+		              outputPath: './images/'
+		            }
+		          }
+		        ]
+		      }, {
+		        test: /\.(woff|woff2|ttf|eot|svg)$/,
+		        use: [
+		          {
+		            loader: 'file-loader',
+		            options: {
+		              name: '[name]-[hash].[ext]',
+		              publicPath: '',
+		              outputPath: './fonts/'
+		            }
+		          }
+		        ]
+		      }
 		]
 	},
 	resolve: {
