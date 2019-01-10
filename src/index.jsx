@@ -37,21 +37,13 @@
 //   });
 // }
 
-
+import "babel-polyfill";
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
-// import { BrowserRouter, Route, Redirect,Link } from 'react-router-dom'
 import configureStore from './redux'
 import App from '@/containers/App'
-// import Home from '@/containers/Home'
-// import NewsTypeAdd from '@/containers/news/NewsTypeAdd';
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import './styles/main.less'
 const store = configureStore()
-// const supportsHistory = 'pushState' in window.history;
-// console.log(store.getState().messageReducers);
 ReactDom.render(
  <Provider store={store}>
   <App />
