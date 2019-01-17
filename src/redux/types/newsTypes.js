@@ -1,8 +1,0 @@
-const NEWS_GET_ITEM = 'NEWS_GET_ITEM'
-const NEWS_GET_LIST = 'NEWS_GET_LIST'
-
-
-export default {
-	NEWS_GET_ITEM,
-	NEWS_GET_LIST
-}

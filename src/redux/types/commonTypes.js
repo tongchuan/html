@@ -1,8 +1,0 @@
-const MESSAGE_TYPE = 'MESSAGE_TYPE'
-const MESSAGE_TYPE2 = 'MESSAGE_TYPE2'
-
-
-export default {
-	MESSAGE_TYPE,
-	MESSAGE_TYPE2
-}
