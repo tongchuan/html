@@ -71,7 +71,7 @@ instance.interceptors.request.use(function (conf) {
 // // 添加响应拦截器
 instance.interceptors.response.use(function (response) {
 	// console.log(dispatch);
-	dispatch({type: 'MESSAGE_TYPE', data: {text:'kaishi'}})
+	// dispatch({type: 'MESSAGE_TYPE', data: {text:'kaishi'}})
 	// console.log(response);
 //   // globalStore.hideWait()
 //   // 对响应数据做点什么
@@ -81,5 +81,5 @@ instance.interceptors.response.use(function (response) {
 
   return error;
 });
-console.log(instance.interceptors);
+// console.log(instance.interceptors);
 export default instance

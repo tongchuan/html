@@ -70,34 +70,33 @@ export default class NewsTypeAdd extends Component {
 		})
 	}
 	render(){
+		// {this.props.newsTypeState.dataList && this.props.newsTypeState.dataList.map((item)=>{
+		// 		return (<li>{item.id}</li>)
+		// 	})}
 		return (
 			<div>
 			<Header />
-			<ul>
-			{this.props.newsTypeState.dataList.map((item)=>{
-				return (<li>{item.id}</li>)
-			})}
-			</ul>
-			<Form horizontal>
-				{Object.keys(this.state.data).map((item,index)=>{
-					return (
-						<FormGroup>
-						    <Col sm={2}>
-						      {item}:
-						    </Col>
-						    <Col sm={10}>
-						      <FormControl onChange={this.onChangeInput.bind(this,item,index)} type="text" value={this.state.data[item]} placeholder={item} />
-						    </Col>
-						</FormGroup>
-					)
-				})}
-				<FormGroup>
-				    <Col smOffset={2} sm={10}>
-				      <Button onClick={this.props.actions.saveData.bind(this,this.state.data)} type="button">Sign in</Button>
-				    </Col>
-				</FormGroup>
-			</Form>
+				<Form horizontal>
+					{Object.keys(this.state.data).map((item,index)=>{
+						return (
+							<FormGroup>
+							    <Col componentClass={ControlLabel} sm={2}>
+							      {item}:
+							    </Col>
+							    <Col sm={10}>
+							      <FormControl onChange={this.onChangeInput.bind(this,item,index)} type="text" value={this.state.data[item]} placeholder={item} />
+							    </Col>
+							</FormGroup>
+						)
+					})}
+					<FormGroup>
+					    <Col smOffset={2} sm={10}>
+					      <Button onClick={this.props.actions.saveData.bind(this,this.state.data)} type="button">Sign in</Button>
+					    </Col>
+					</FormGroup>
+				</Form>
 			</div>
+
 		)
 		// return (
 		// 	<div>

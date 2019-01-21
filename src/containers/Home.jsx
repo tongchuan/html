@@ -36,7 +36,7 @@ export default class Home extends Component {
 		// this.props.actions.getItem(111)
 	}
 	render(){
-		console.log(this.props.newsState);
+		// console.log(this.props.newsState);
 		return (
 			<div>
 				<Header />

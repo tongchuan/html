@@ -1,4 +1,7 @@
 export default {
+	adminStateInitData: {
+		dataList: [],
+	},
 	commonStateInitData: {
 		text: ''
 	},

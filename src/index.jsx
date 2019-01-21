@@ -42,7 +42,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './redux'
-import App from '@/containers/App'
+import App from '@/router/App'
 const store = configureStore()
 ReactDom.render(
  <Provider store={store}>

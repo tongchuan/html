@@ -39,7 +39,7 @@ export default {
 			      }
 			}).then((data)=>{
 				// let data = {dataList:}
-				console.log(['=========',data]);
+				// console.log(['=========',data]);
 				dispatch({type: types.NEWS_TYPE_LIST_DATA, data: {dataList: data} })
 				
 			}).catch((error)=>{
