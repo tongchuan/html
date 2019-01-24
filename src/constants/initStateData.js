@@ -1,6 +1,7 @@
 export default {
 	adminStateInitData: {
 		dataList: [],
+		isLogin: false,
 	},
 	commonStateInitData: {
 		text: ''

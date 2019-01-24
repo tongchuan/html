@@ -26,16 +26,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import {Alert} from 'react-bootstrap';
 import commonActions from '@/redux/actions/commonActions'
-// import configureStore from './redux'
-// import App from '@/containers/App'
-import Home from '@/containers/Home'
-import NewsTypeAdd from '@/containers/news/NewsTypeAdd';
-import AdminList from '@/containers/admin/AdminList';
+import AppRouter from './AppRouter';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/styles/main.less'
 const supportsHistory = 'pushState' in window.history;
-
-
 @connect(
 	(state,ownProps)=>{
 		// return state.commonStateInitData;
@@ -46,7 +41,9 @@ const supportsHistory = 'pushState' in window.history;
 	(dispatch,ownProps)=>{
 		// console.log(['mapDispatchToProps',dispatch,ownProps]);
 		return {actions: bindActionCreators(commonActions, dispatch)}
-	},)
+	},(stateProps, dispatchProps, ownProps)=>{
+		return Object.assign({}, ownProps, stateProps, dispatchProps)
+	},{pure:true})
 export default class App extends React.Component{
 	constructor(props){
 		super(props)
@@ -64,6 +61,27 @@ export default class App extends React.Component{
       methodA: () => 'methodA'
     }
   }
+  componentWillMount(){
+
+  }
+  componentDidMount(){
+  	console.log('ddd');
+  }
+  componentWillReceiveProps(nextProps){
+  	console.log('nextProps');
+  }
+  shouldComponentUpdate(){
+  	return true;
+  }
+  componentWillUpdate(){
+
+  }
+  componentDidUpdate(){
+
+  }
+  componentWillUnmount(){
+
+  }
 
 	// getChildContext(){
 	// 	return {
@@ -72,9 +90,7 @@ export default class App extends React.Component{
 	// 	}
 	// }
 	render(){
-		const jiancha = function(...arr){
-			console.log(arr);
-		}
+		console.log('===',window.localhost);
 		return (
 			<BrowserRouter basename="/" forceRefresh={!supportsHistory}>
 				<div className="container-fluid">
@@ -86,9 +102,14 @@ export default class App extends React.Component{
 						</Alert>
 					{/*</div>*/}
 					{/*{this.props.commonState.text}*/}
-					<Route exact path='/' component={Home} />
-					<Route path='/admin' onEnter={jiancha} component={AdminList} />
-					<Route path='/newstypeadd' onEnter={jiancha} component={NewsTypeAdd} />
+					{
+						AppRouter.map((item)=>{
+							return (<Route exact={item.exact} path={item.path} component={item.component} />)
+						})
+					}
+					{/*<Route exact path='/' component={Home} />
+					<Route path='/admin' exact component={AdminList} />
+					<Route path='/newstypeadd' component={NewsTypeAdd} />*/}
 				</div>
 			</BrowserRouter>
 		)

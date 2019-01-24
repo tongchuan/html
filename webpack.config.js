@@ -14,7 +14,9 @@ module.exports = {
 	entry: './src/index.jsx',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'script/[name].[hash].js'
+		filename: 'script/[name].[hash].js',
+		chunkFilename: 'script/[name].[hash].js',
+		publicPath:'./',
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
