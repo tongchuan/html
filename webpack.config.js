@@ -16,7 +16,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'script/[name].[hash].js',
 		chunkFilename: 'script/[name].[hash].js',
-		publicPath:'./',
+		publicPath:'',
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
@@ -58,10 +58,7 @@ module.exports = {
 		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
-		new HtmlWebpackPlugin({
-			filename: 'index.html',
-    		template: 'config/index.html',
-		}),
+		
 		new MiniCssExtractPlugin({
 		      // Options similar to the same options in webpackOptions.output
 		      // both options are optional
@@ -78,6 +75,10 @@ module.exports = {
 		    'process.env': {
 		      baseURI: JSON.stringify('http://127.0.0.1/')
 		    }
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'index.html',
+    	template: 'config/index.html',
 		}),
 	],
 	module: {

@@ -16,7 +16,7 @@ export default class Header extends Component{
 		return (
 			<div className="navbar navbar-default">
 				<div className="navbar-header">
-					<a href="#brand" class="navbar-brand">React-Bootstrap</a>
+				 	<a href="" className="navbar-brand">ZHANGTCH</a>
 				</div>
 				<div className="navbar-collapse collapse">
 					<ul className="nav navbar-nav">

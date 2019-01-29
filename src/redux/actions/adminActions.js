@@ -2,8 +2,9 @@ import axios from '@/constants/axios';
 import config from '@/constants/config';
 import types from '@/redux/types/adminTypes';
 import commonTypes from '@/redux/types/commonTypes'
-
+import common from './common';
 export default {
+	...common,
 	add(data){
 		return (dispatch, getState, api) => {
 			axios({

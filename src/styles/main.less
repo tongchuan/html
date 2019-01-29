@@ -1,21 +1,39 @@
-
-html,body, #root{
-	width:100%;
-	height: 100%;
+@borderColor: #e2e2e2;
+html,body, #root, div,ul,li,ol{
+	
 	margin:0;
 	padding: 0;
 	border: 0;
 }
+html,body, #root{
+	width:100%;
+	height: 100%;
+}
 
-.alert-message{
+ul,ol,li{
+	list-style: none;
+}
+li{
+	line-height: 25px;
+}
+.alert_class{
+	border-radius: 0;
 	position: fixed;
 	top: 0;
-	left: 15px;
-	right:15px;
-	z-index:3
+	left: 0;
+	width: 100%;
 }
-.alert-message .close{
-	right: 0;
-    position: absolute;
-    cursor: pointer;
+
+.user_login{
+	width: 450px;
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -225px;
+	border: 1px dashed @borderColor;
+	box-shadow: 5px 5px 20px #900;
+	border-radius: 5px;
+	padding: 0 15px;
+
 }

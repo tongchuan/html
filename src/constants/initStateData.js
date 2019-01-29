@@ -1,4 +1,13 @@
 export default {
+	alertInitData: {
+		class: 'alert_class',
+		show: false,
+		type: 'info',
+		title: '',
+		content: '',
+		autoClose: true,
+		time: 3000,
+	},
 	adminStateInitData: {
 		dataList: [],
 		isLogin: false,
